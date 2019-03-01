@@ -1,6 +1,4 @@
 // Copyright 2019 Khomenko Aleksei
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 #include <omp.h>
 #include <iostream>
