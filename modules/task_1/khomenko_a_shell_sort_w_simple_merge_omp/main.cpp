@@ -1,7 +1,10 @@
 // Copyright 2019 Khomenko Aleksei
-#include <time.h>
+#include <stdlib.h>
 #include <omp.h>
 #include <iostream>
+#include <ctime>
+
+
 
 
 void ShellSort(int length, double array[]) {
@@ -46,7 +49,7 @@ void ShellSort_v2(int length, double array[]) {
 
 
 void CreateArray(double arr[], int lenght) {
-    srand(time(0));
+    srand((unsigned int)time(NULL));
     for (int i = 0; i < lenght; i++) {
         arr[i] = std::rand() % 10;
     }
@@ -73,3 +76,4 @@ int main(int argc, char * argv[]) {
     std::cout <<std::endl;
     return 0;
 }
+
