@@ -1,4 +1,4 @@
-set(PROJECT_NAME "khomenko_a_shell_sort_omp")
+set(PROJECT_NAME "khomenko_a_shell_sort_w_simple_merge_omp")
 
 if ( USE_OMP )
     project( ${PROJECT_NAME} )
