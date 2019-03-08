@@ -139,7 +139,7 @@ private(start1, start2) shared(arr, size1, size2)
         k++;
     }
     t2_2 = omp_get_wtime();
-    totalTime2 = t2_2 - t2_1;
+    totalTime2 = t2_2 - t1_2;
     std::cout<< "Parallel merge sorting time on " << n_threads
     << " threads: " << (totalTime2) << std::endl;
     std::cout << std::endl;
