@@ -4,6 +4,7 @@
 #include <omp.h>
 #include <math.h>
 #include <iostream>
+#include <ctime>
 
 bool is_sorted(double* arr, int siz) {
     double prev;
@@ -123,17 +124,18 @@ double ShellSortOmp(double* arr, int length, int n_threads) {
     int i = 0;
     t1_2 = omp_get_wtime();
     for (i = (n_threads / 2); i > 0; i = i/2) {
-        int start1 = 0, start2 = start1 + grain_size*pow(2.0, k);
+        int start1 = 0, start2 = start1 +
+        grain_size*static_cast<int>(pow(2.0, k));
         int size1, size2 = 0;
-        size1 = grain_size*pow(2.0, k);
-        size2 = grain_size*pow(2.0, k);
+        size1 = grain_size*static_cast<int>(pow(2.0, k));
+        size2 = grain_size*static_cast<int>(pow(2.0, k));
         omp_set_num_threads(i);
 #pragma omp parallel for schedule(static)\
 private(start1, start2) shared(arr, size1, size2)
         for (int f = 0; f < i; f++) {
             int my_num = omp_get_thread_num();
-            start1 = my_num*grain_size*pow(2.0, k + 1);
-            start2 = start1 + grain_size*pow(2.0, k);
+            start1 = my_num*grain_size*static_cast<int>(pow(2.0, k + 1));
+            start2 = start1 + grain_size*static_cast<int>(pow(2.0, k));
             Merge(arr, size1, size2, start1, start2);
         }
         k++;
