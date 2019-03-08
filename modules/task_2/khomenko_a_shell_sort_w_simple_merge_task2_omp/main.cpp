@@ -6,7 +6,7 @@
 #include <iostream>
 
 bool is_sorted(double* arr, int siz) {
-    int prev;
+    double prev;
     while ( --siz ) {
         prev = *arr++;
         if ( *arr < prev ) return false;
@@ -101,7 +101,7 @@ void Merge(double* array, int m, int n, int it1, int it2) {
 }
 
 double ShellSortOmp(double* arr, int length, int n_threads) {
-    double t1_1, t2_1, t1_2, t2_2;
+    double t1_1 , t2_1 , t1_2 , t2_2;
     double totalTime1, totalTime2;
     omp_set_num_threads(n_threads);
     int grain_size = 0;
@@ -238,3 +238,6 @@ int main(int argc, const char * argv[]) {
 
     return 0;
 }
+
+
+
